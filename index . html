@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PGDC - نادي البرمجة والتصميم الجرافيكي | تسجيل</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ========== شريط التنقل ========== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* شعار PGDC الجديد */
+.pgdc-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    padding: 6px 14px;
+    border-radius: 40px;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+.pgdc-logo i {
+    font-size: 22px;
+    color: white;
+    text-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+.pgdc-text {
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 1px;
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.pgdc-sub {
+    font-size: 10px;
+    color: #e0f2fe;
+    background: rgba(255,255,255,0.15);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.nav-logo span {
+    font-weight: 700;
+    font-size: 16px;
+    color: #cbd5e1;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    padding: 10px 22px;
+    border-radius: 25px;
+    color: white !important;
+    font-weight: 700 !important;
+    transition: 0.3s !important;
+}
+
+.nav-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ========== القسم الرئيسي ========== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    position: relative;
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.1), transparent);
+    border-radius: 50%;
+    top: -150px;
+    left: -150px;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08), transparent);
+    border-radius: 50%;
+    bottom: -100px;
+    right: -100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+}
+
+/* شعار رئيسي جديد */
+.hero-logo {
+    margin-bottom: 25px;
+    animation: heroFloat 3s ease-in-out infinite;
+}
+.main-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    padding: 20px 35px;
+    border-radius: 70px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5), 0 0 0 2px rgba(6,182,212,0.1) inset;
+}
+.main-logo .logo-icon {
+    font-size: 52px;
+    background: linear-gradient(135deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.main-logo h2 {
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #fff, #38bdf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 5px 0 0;
+}
+.main-logo p {
+    font-size: 11px;
+    color: #94a3b8;
+    letter-spacing: 1px;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.hero h1 {
+    font-size: 46px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.3;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #94a3b8;
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.4s;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    color: white;
+    box-shadow: 0 8px 30px rgba(6, 182, 212, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 45px rgba(6, 182, 212, 0.5);
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid #38bdf8;
+}
+
+.btn-outline:hover {
+    background: rgba(56, 189, 248, 0.1);
+    transform: translateY(-4px);
+}
+
+/* ========== قسم المميزات ========== */
+.features {
+    padding: 80px 20px;
+    background: #111827;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    color: #38bdf8;
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    color: #94a3b8;
+    font-size: 18px;
+}
+
+.features-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: #1e293b;
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: #38bdf8;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.feature-icon {
+    font-size: 45px;
+    color: #38bdf8;
+    margin-bottom: 18px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #f1f5f9;
+}
+
+.feature-card p {
+    color: #94a3b8;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* ========== قسم الإحصائيات ========== */
+.stats-section {
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.stats-grid {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+}
+
+.stat-box h3 {
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.stat-box p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ========== قسم التسجيل ========== */
+.register-section {
+    padding: 80px 20px;
+    background: #0f172a;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.3);
+}
+
+.form-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.form-logo .mini-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #1e293b;
+    padding: 8px 20px;
+    border-radius: 60px;
+    border: 1px solid #334155;
+}
+.mini-logo i {
+    font-size: 28px;
+    color: #38bdf8;
+}
+.mini-logo .mini-text {
+    font-weight: 800;
+    font-size: 22px;
+    background: linear-gradient(135deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.mini-logo span:last-child {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 34px;
+    color: #38bdf8;
+}
+
+.form-subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #cbd5e1;
+}
+
+.qr-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 18px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+}
+
+.qr-box {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.qr-box canvas {
+    display: block;
+}
+
+.qr-text h4 {
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
+
+.qr-text p {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.qr-text .link {
+    color: #22d3ee;
+    font-weight: bold;
+}
+
+.eval-stats {
+    background: #111827;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.eval-stat {
+    text-align: center;
+}
+
+.eval-stat .val {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.eval-stat .lbl {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 3px;
+}
+
+.val.total { color: #60a5fa; }
+.val.correct { color: #4ade80; }
+.val.wrong { color: #f87171; }
+.val.ai { color: #fbbf24; }
+
+.reject-msg {
+    display: none;
+    background: rgba(239, 68, 68, 0.15);
+    border: 2px solid #ef4444;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: center;
+    animation: shake 0.5s ease;
+}
+
+.reject-msg.show {
+    display: block;
+}
+
+.reject-msg .icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.reject-msg h3 {
+    color: #ef4444;
+    margin-bottom: 8px;
+}
+
+.reject-msg p {
+    color: #fca5a5;
+}
+
+.sec-title {
+    margin: 30px 0 20px;
+    font-size: 22px;
+    color: #22d3ee;
+    border-right: 5px solid #22d3ee;
+    padding-right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.diff-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+.diff-easy { background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid #22c55e; }
+.diff-medium { background: rgba(251,191,36,0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+.diff-hard { background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid #ef4444; }
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #1e293b;
+    color: white;
+    font-size: 15px;
+}
+
+.form-group textarea {
+    resize: none;
+    min-height: 110px;
+}
+
+/* ===== رفع الصور ===== */
+.file-upload-wrapper {
+    position: relative;
+}
+
+.file-upload-area {
+    border: 2px dashed #334155;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #1e293b;
+}
+
+.file-upload-area:hover {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.05);
+}
+
+.file-upload-area.has-file {
+    border-color: #22c55e;
+    border-style: solid;
+    background: rgba(34, 197, 94, 0.05);
+}
+
+.file-upload-area i {
+    font-size: 40px;
+    color: #64748b;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.file-upload-area.has-file i {
+    color: #22c55e;
+}
+
+.file-upload-area .upload-text {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.file-upload-area .upload-text strong {
+    color: #38bdf8;
+}
+
+.file-upload-area .file-name {
+    color: #4ade80;
+    margin-top: 8px;
+    font-weight: 600;
+    display: none;
+}
+
+.file-upload-area.has-file .file-name {
+    display: block;
+}
+
+.file-upload-area input[type="file"] {
+    display: none;
+}
+
+.file-info {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.file-preview {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+.file-preview.show {
+    display: block;
+}
+
+.q-box {
+    background: #0f172a;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    transition: 0.3s;
+}
+
+.q-box h4 {
+    margin-bottom: 12px;
+    color: #38bdf8;
+    padding-left: 45px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.q-num {
+    background: rgba(56,189,248,0.2);
+    color: #38bdf8;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.eval-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.eval-tag.show { display: block; }
+.eval-tag.ok { background: rgba(34,197,94,0.2); border: 1px solid #22c55e; color: #4ade80; }
+.eval-tag.no { background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #f87171; }
+.eval-tag.bot { background: rgba(251,191,36,0.2); border: 1px solid #fbbf24; color: #fbbf24; }
+
+.q-box.wrong-q { border-color: rgba(239,68,68,0.5); box-shadow: 0 0 12px rgba(239,68,68,0.1); }
+.q-box.correct-q { border-color: rgba(34,197,94,0.5); box-shadow: 0 0 12px rgba(34,197,94,0.1); }
+.q-box.ai-q { border-color: rgba(251,191,36,0.5); box-shadow: 0 0 12px rgba(251,191,36,0.1); }
+
+.rules-box {
+    background: #111827;
+    padding: 22px;
+    border-radius: 15px;
+    margin-top: 25px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.rules-box ul {
+    padding-right: 18px;
+}
+
+.rules-box li {
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+.checkbox-row {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-row input {
+    width: auto;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+}
+
+.spinner.show {
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.notif {
+    display: none;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    text-align: center;
+    font-weight: 600;
+    animation: slideDown 0.5s ease-out;
+}
+
+.notif.show { display: block; }
+.notif.ok { background: rgba(34,197,94,0.2); border: 1px solid #22c55e; color: #86efac; }
+.notif.err { background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #fca5a5; }
+.notif.warn { background: rgba(251,191,36,0.2); border: 1px solid #fbbf24; color: #fde68a; }
+
+.req-star { color: #ef4444; margin-right: 3px; }
+
+/* ========== الفوتر ========== */
+.footer {
+    background: #020617;
+    text-align: center;
+    padding: 30px 20px;
+    color: #64748b;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer .social {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.footer .social a {
+    color: #94a3b8;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.footer .social a:hover {
+    color: #38bdf8;
+    transform: scale(1.2);
+}
+
+/* ========== حركات ========== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+/* ========== تجاوب ========== */
+@media (max-width: 768px) {
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: rgba(15,23,42,0.98);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        padding: 120px 15px 60px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        line-height: 1.5;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-container {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .form-title {
+        font-size: 24px;
+    }
+
+    .sec-title {
+        font-size: 18px;
+    }
+
+    .q-box h4 {
+        font-size: 14px;
+        padding-left: 0;
+        line-height: 1.7;
+    }
+
+    textarea,
+    input,
+    select {
+        font-size: 16px;
+    }
+
+    .qr-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== شريط التنقل ========== -->
+<nav class="navbar">
+    <div class="nav-logo">
+        <div class="pgdc-logo">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-pen-fancy"></i>
+            <div class="pgdc-text">PGDC</div>
+            <div class="pgdc-sub">CLUB</div>
+        </div>
+        <span>نادي البرمجة والتصميم</span>
+    </div>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+    <ul class="nav-links">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#features">المميزات</a></li>
+        <li><a href="#register" class="nav-btn">سجل الآن</a></li>
+    </ul>
+</nav>
+
+<!-- ========== القسم الرئيسي ========== -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-logo">
+            <div class="main-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i> 
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h2>PGDC</h2>
+                <p>PROGRAMMING & GRAPHIC DESIGN CLUB</p>
+            </div>
+        </div>
+        <h1>نادي البرمجة والتصميم الغرافيكي</h1>
+        <p>انضم إلى مجتمع المبدعين والمبرمجين. تعلم، صمم، وابنِ مستقبلك الرقمي مع أفضل النوادي الطلابية.</p>
+        <div class="hero-buttons">
+            <a href="#register" class="btn btn-primary">سجل الآن</a>
+            <a href="#features" class="btn btn-outline">اكتشف المزيد</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== قسم المميزات ========== -->
+<section class="features" id="features">
+    <div class="section-header">
+        <h2>لماذا تنضم إلينا؟</h2>
+        <p>أربعة أسباب تجعل نادينا الخيار الأمثل لك</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h3>تعلم البرمجة</h3>
+            <p>دورات شاملة من الصفر إلى الاحتراف في HTML، CSS، JavaScript، Python، والخوارزميات.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>التصميم الإبداعي</h3>
+            <p>أتقن فن التصميم الغرافيكي، الهوية البصرية، وأدوات Photoshop و Illustrator.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3>مجتمع تفاعلي</h3>
+            <p>تعاون مع زملاء يشاركونك الشغف في هاكاثونات ومسابقات محلية ووطنية.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📜</div>
+            <h3>شهادات معتمدة</h3>
+            <p>احصل على شهادات حضور ومشاركة تعزز سيرتك الذاتية الأكاديمية والمهنية.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ========== قسم الإحصائيات ========== -->
+<section class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-box"><h3>+500</h3><p>عضو منضم</p></div>
+        <div class="stat-box"><h3>+30</h3><p>ورشة عمل</p></div>
+        <div class="stat-box"><h3>+15</h3><p>مشروع متوج</p></div>
+        <div class="stat-box"><h3>+10</h3><p>مدرب خبير</p></div>
+    </div>
+</section>
+
+<!-- ========== قسم التسجيل ========== -->
+<section class="register-section" id="register">
+    <div class="form-container">
+        <div class="form-logo">
+            <div class="mini-logo">
+                <i class="fas fa-code-branch"></i>
+                <div class="mini-text">PGDC</div>
+                <span>نادي البرمجة والتصميم</span>
+            </div>
+        </div>
+
+        <h2 class="form-title">استمارة الانخراط</h2>
+        <p class="form-subtitle">نادي البرمجة والتصميم الغرافيكي</p>
+
+        <div class="qr-row">
+            <div class="qr-box" id="qrcode"></div>
+            <div class="qr-text">
+                <h4>📱 امسح رمز QR</h4>
+                <p>للدخول إلى استمارة التسجيل</p>
+                <p class="link">أو شارك الرابط مع أصدقائك</p>
+            </div>
+        </div>
+
+        <div class="eval-stats">
+            <div class="eval-stat"><div class="val total" id="totalQ">0/10</div><div class="lbl">مجموع الأسئلة</div></div>
+            <div class="eval-stat"><div class="val correct" id="corrC">0</div><div class="lbl">صحيحة</div></div>
+            <div class="eval-stat"><div class="val wrong" id="wrongC">0</div><div class="lbl">خاطئة</div></div>
+            <div class="eval-stat"><div class="val ai" id="aiC">0</div><div class="lbl">ذكاء اصطناعي</div></div>
+        </div>
+
+        <div class="reject-msg" id="rejectMsg">
+            <div class="icon">🚫</div>
+            <h3>تم رفض الطلب تلقائياً</h3>
+            <p id="rejectReason"></p>
+        </div>
+
+        <div class="notif" id="notif"></div>
+
+        <form id="regForm">
+            <div class="sec-title">المعلومات الشخصية</div>
+
+            <div class="form-group">
+                <label>الاسم واللقب <span class="req-star">*</span></label>
+                <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required>
+            </div>
+
+            <div class="form-group">
+                <label>البريد الإلكتروني <span class="req-star">*</span></label>
+                <input type="email" id="email" placeholder="example@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>معدل النجاح في البكالوريا</label>
+                <input type="number" id="bacGrade" step="0.01" min="0" max="20" placeholder="مثال : 15.50">
+            </div>
+
+            <!-- ===== رفع الصور ===== -->
+            <div class="sec-title">الوثائق المطلوبة</div>
+
+            <div class="form-group">
+                <label>شهادة البكالوريا <span class="req-star">*</span></label>
+                <div class="file-upload-wrapper">
+                    <div class="file-upload-area" id="bacUploadArea" onclick="document.getElementById('bacFile').click()">
+                        <i class="fa-solid fa-file-image"></i>
+                        <span class="upload-text">اضغط هنا <strong>لرفع شهادة البكالوريا</strong></span>
+                        <span class="file-name" id="bacFileName"></span>
+                        <img class="file-preview" id="bacPreview" alt="معاينة">
+                    </div>
+                    <input type="file" id="bacFile" accept="image/*" onchange="handleFileUpload(this, 'bacUploadArea', 'bacFileName', 'bacPreview')">
+                    <p class="file-info">الصيغ المقبولة: JPG, PNG, WebP - الحد الأقصى 5MB</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>الشهادة الدراسية (آخر شهادة) <span class="req-star">*</span></label>
+                <div class="file-upload-wrapper">
+                    <div class="file-upload-area" id="studyUploadArea" onclick="document.getElementById('studyFile').click()">
+                        <i class="fa-solid fa-file-image"></i>
+                        <span class="upload-text">اضغط هنا <strong>لرفع الشهادة الدراسية</strong></span>
+                        <span class="file-name" id="studyFileName"></span>
+                        <img class="file-preview" id="studyPreview" alt="معاينة">
+                    </div>
+                    <input type="file" id="studyFile" accept="image/*" onchange="handleFileUpload(this, 'studyUploadArea', 'studyFileName', 'studyPreview')">
+                    <p class="file-info">الصيغ المقبولة: JPG, PNG, WebP - الحد الأقصى 5MB</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>شهادة سابقة في المجال (اختياري)</label>
+                <div class="file-upload-wrapper">
+                    <div class="file-upload-area" id="certUploadArea" onclick="document.getElementById('certFile').click()">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="upload-text">اضغط هنا <strong>لرفع شهادة سابقة</strong> (إن وجدت)</span>
+                        <span class="file-name" id="certFileName"></span>
+                        <img class="file-preview" id="certPreview" alt="معاينة">
+                    </div>
+                    <input type="file" id="certFile" accept="image/*" onchange="handleFileUpload(this, 'certUploadArea', 'certFileName', 'certPreview')">
+                    <p class="file-info">الصيغ المقبولة: JPG, PNG, WebP - الحد الأقصى 5MB</p>
+                </div>
+            </div>
+
+            <!-- أسئلة البرمجة -->
+            <div class="sec-title">
+                أسئلة البرمجة
+                <span class="diff-badge diff-easy">سهل ← متوسط ← صعب</span>
+            </div>
+
+            <div class="q-box" id="q-prog1">
+                <span class="eval-tag" id="tag-prog1"></span>
+                <h4><span class="q-num">1</span> ما هو HTML ؟ <span class="diff-badge diff-easy">سهل</span></h4>
+                <textarea id="prog1" placeholder="اكتب إجابتك..." data-cat="programming"></textarea>
+            </div>
+
+            <div class="q-box" id="q-prog2">
+                <span class="eval-tag" id="tag-prog2"></span>
+                <h4><span class="q-num">2</span> ما الفرق بين CSS و JavaScript ؟ <span class="diff-badge diff-easy">سهل</span></h4>
+                <textarea id="prog2" placeholder="اكتب إجابتك..." data-cat="programming"></textarea>
+            </div>
+
+            <div class="q-box" id="q-prog3">
+                <span class="eval-tag" id="tag-prog3"></span>
+                <h4><span class="q-num">3</span> ما المقصود بالخوارزمية Algorithm ؟ <span class="diff-badge diff-medium">متوسط</span></h4>
+                <textarea id="prog3" placeholder="اكتب إجابتك..." data-cat="programming"></textarea>
+            </div>
+
+            <div class="q-box" id="q-prog4">
+                <span class="eval-tag" id="tag-prog4"></span>
+                <h4><span class="q-num">4</span> كيف يمكن تحسين أداء موقع ويب ؟ <span class="diff-badge diff-medium">متوسط</span></h4>
+                <textarea id="prog4" placeholder="اكتب إجابتك..." data-cat="programming"></textarea>
+            </div>
+
+            <div class="q-box" id="q-prog5">
+                <span class="eval-tag" id="tag-prog5"></span>
+                <h4><span class="q-num">5</span> اشرح مفهوم OOP مع مثال تطبيقي؟ <span class="diff-badge diff-hard">صعب</span></h4>
+                <textarea id="prog5" placeholder="اكتب إجابتك..." data-cat="programming"></textarea>
+            </div>
+
+            <!-- أسئلة التصميم -->
+            <div class="sec-title">
+                أسئلة التصميم الغرافيكي
+                <span class="diff-badge diff-easy">سهل ← متوسط ← صعب</span>
+            </div>
+
+            <div class="q-box" id="q-design1">
+                <span class="eval-tag" id="tag-design1"></span>
+                <h4><span class="q-num">1</span> ما هو التصميم الغرافيكي ؟ <span class="diff-badge diff-easy">سهل</span></h4>
+                <textarea id="design1" placeholder="اكتب إجابتك..." data-cat="design"></textarea>
+            </div>
+
+            <div class="q-box" id="q-design2">
+                <span class="eval-tag" id="tag-design2"></span>
+                <h4><span class="q-num">2</span> ما الفرق بين RGB و CMYK ؟ <span class="diff-badge diff-easy">سهل</span></h4>
+                <textarea id="design2" placeholder="اكتب إجابتك..." data-cat="design"></textarea>
+            </div>
+
+            <div class="q-box" id="q-design3">
+                <span class="eval-tag" id="tag-design3"></span>
+                <h4><span class="q-num">3</span> ما أهمية الهوية البصرية للعلامة التجارية؟ <span class="diff-badge diff-medium">متوسط</span></h4>
+                <textarea id="design3" placeholder="اكتب إجابتك..." data-cat="design"></textarea>
+            </div>
+
+            <div class="q-box" id="q-design4">
+                <span class="eval-tag" id="tag-design4"></span>
+                <h4><span class="q-num">4</span> اشرح ثلاثة من المبادئ الأساسية في التصميم <span class="diff-badge diff-medium">متوسط</span></h4>
+                <textarea id="design4" placeholder="اكتب إجابتك..." data-cat="design"></textarea>
+            </div>
+
+            <div class="q-box" id="q-design5">
+                <span class="eval-tag" id="tag-design5"></span>
+                <h4><span class="q-num">5</span> كيف تحقق التوازن بين الجمالية والوظيفة في التصميم؟ <span class="diff-badge diff-hard">صعب</span></h4>
+                <textarea id="design5" placeholder="اكتب إجابتك..." data-cat="design"></textarea>
+            </div>
+
+            <div class="sec-title">معلومات إضافية</div>
+
+            <div class="form-group">
+                <label>ما هي مواهبك ؟</label>
+                <textarea id="talents" placeholder="اذكر مواهبك ومهاراتك..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>لماذا اخترت هذا النادي ؟ <span class="req-star">*</span></label>
+                <textarea id="whyClub" required placeholder="اشرح أسباب اختيارك..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>ما هي تطلعاتك داخل النادي ؟</label>
+                <textarea id="aspirations" placeholder="ما الذي تطمح لتعلمه؟..."></textarea>
+            </div>
+
+            <div class="rules-box">
+                <h3 style="color:#38bdf8;margin-bottom:15px;">التعهد والالتزام</h3>
+                <ul>
+                    <li>الاحترام المتبادل داخل النادي.</li>
+                    <li>احترام الاجتماعات والمناقشات المنعقدة داخل النادي.</li>
+                    <li>الالتزام بالحضور النسبي في الدورات والأنشطة.</li>
+                    <li>في حالة الإخلال بهذه البنود، يتعرض المخالف للطرد المباشر.</li>
+                </ul>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="agreement" required>
+                    <label>أتعهد باحترام جميع قوانين النادي والالتزام بها. <span class="req-star">*</span></label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">إرسال طلب الانخراط</button>
+        </form>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="social">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-discord"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <p>© 2026 نادي البرمجة والتصميم الغرافيكي - جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+// ============ QR Code ============
+new QRCode(document.getElementById("qrcode"), {
+    text: window.location.href,
+    width: 140,
+    height: 140,
+    colorDark: "#0f172a",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+});
+
+// ============ نظام رفع الصور ============
+const uploadedFiles = {
+    bacFile: null,
+    studyFile: null,
+    certFile: null
+};
+
+function handleFileUpload(input, areaId, fileNameId, previewId) {
+    const file = input.files[0];
+    const area = document.getElementById(areaId);
+    const fileName = document.getElementById(fileNameId);
+    const preview = document.getElementById(previewId);
+
+    if (file) {
+        // التحقق من حجم الملف (5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            showNotif('حجم الملف كبير جداً. الحد الأقصى 5 ميغابايت', 'err');
+            input.value = '';
+            return;
+        }
+
+        // تحويل الصورة إلى Base64
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            uploadedFiles[input.id] = e.target.result;
+            
+            // تحديث الواجهة
+            area.classList.add('has-file');
+            fileName.textContent = '📎 ' + file.name;
+            fileName.style.display = 'block';
+
+            // عرض معاينة للصورة
+            if (file.type.startsWith('image/')) {
+                preview.src = e.target.result;
+                preview.classList.add('show');
+            }
+        };
+        reader.readAsDataURL(file);
+    } else {
+        uploadedFiles[input.id] = null;
+        area.classList.remove('has-file');
+        fileName.style.display = 'none';
+        preview.classList.remove('show');
+    }
+}
+
+// ============ نظام التقييم ============
+const answerKeywords = {
+    prog1: {
+        keywords: ['لغة ترميز', 'هيكلة', 'وسوم', 'tags', 'هيكل', 'markup', 'عناصر', 'elements', 'صفحات ويب', 'بناء'],
+        minKw: { easy: 1, medium: 2, hard: 3 },
+        category: 'programming', difficulty: 'easy'
+    },
+    prog2: {
+        keywords: ['تنسيق', 'تصميم', 'شكل', 'ألوان', 'تخطيط', 'تفاعل', 'ديناميكي', 'static', 'dynamic', 'وظائف', 'سلوك', 'مظهر'],
+        minKw: { easy: 1, medium: 2, hard: 3 },
+        category: 'programming', difficulty: 'easy'
+    },
+    prog3: {
+        keywords: ['خطوات', 'حل مشكلة', 'متسلسلة', 'منطقية', 'تعليمات', 'مدخلات', 'مخرجات', 'تسلسل', 'منهجية', 'إجراءات'],
+        minKw: { easy: 2, medium: 3, hard: 4 },
+        category: 'programming', difficulty: 'medium'
+    },
+    prog4: {
+        keywords: ['ضغط', 'تخزين مؤقت', 'cache', 'تحميل', 'صور', 'كود', 'خادم', 'cdn', 'سرعة', 'أداء', 'minify', 'تحسين'],
+        minKw: { easy: 2, medium: 3, hard: 4 },
+        category: 'programming', difficulty: 'medium'
+    },
+    prog5: {
+        keywords: ['كائنات', 'objects', 'كلاسات', 'classes', 'وراثة', 'تغليف', 'تعدد', 'أصناف', 'خصائص', 'وظائف', 'مثال', 'تطبيق'],
+        minKw: { easy: 3, medium: 4, hard: 5 },
+        category: 'programming', difficulty: 'hard'
+    },
+    design1: {
+        keywords: ['اتصال بصري', 'مرئي', 'رسالة', 'إبداع', 'تكنولوجيا', 'فن', 'طباعة', 'صور', 'رموز', 'visual', 'تصميم'],
+        minKw: { easy: 1, medium: 2, hard: 3 },
+        category: 'design', difficulty: 'easy'
+    },
+    design2: {
+        keywords: ['شاشات', 'طباعة', 'ضوء', 'أحمر أخضر أزرق', 'سماوي', 'أرجواني', 'أصفر', 'أسود', 'ضوئي', 'حبر', 'شاشة'],
+        minKw: { easy: 1, medium: 2, hard: 3 },
+        category: 'design', difficulty: 'easy'
+    },
+    design3: {
+        keywords: ['تمييز', 'علامة تجارية', 'تعرف', 'شخصية', 'اتساق', 'ثقة', 'brand', 'هوية', 'بصرية', 'احترافية', 'تواصل'],
+        minKw: { easy: 2, medium: 3, hard: 4 },
+        category: 'design', difficulty: 'medium'
+    },
+    design4: {
+        keywords: ['توازن', 'تباين', 'تناسق', 'وحدة', 'إيقاع', 'تسلسل', 'فراغ', 'ألوان', 'خطوط', 'تكوين', 'شرح', 'مبادئ'],
+        minKw: { easy: 2, medium: 3, hard: 4 },
+        category: 'design', difficulty: 'medium'
+    },
+    design5: {
+        keywords: ['جمهور', 'هدف', 'بساطة', 'وظيفة', 'جمالية', 'توازن', 'رسالة', 'إبداع', 'ابتكار', 'تجربة مستخدم', 'احترافي', 'مقاييس'],
+        minKw: { easy: 3, medium: 4, hard: 5 },
+        category: 'design', difficulty: 'hard'
+    }
+};
+
+const aiIndicators = [
+    'بالتأكيد', 'بكل سرور', 'سأشرح', 'دعني أوضح', 'في الختام',
+    'كما ذكرت', 'من المهم أن نلاحظ', 'في هذا الشرح', 'سأقوم ب',
+    'أود أن أضيف', 'بناءً على ما سبق', 'خلاصة القول',
+    'آمل أن يكون هذا', 'إذا كان لديك أي', 'لا تتردد في',
+    'أنا هنا للمساعدة', 'دعني أقدم', 'يمكنني مساعدتك',
+    'سأكون سعيداً', 'شكراً على سؤالك', 'هذا سؤال رائع',
+    'في البداية', 'أولاً وقبل كل شيء', 'أخيراً وليس آخراً',
+    'من ناحية', 'من ناحية أخرى', 'علاوة على ذلك',
+    'بالتالي', 'على سبيل المثال', 'بمعنى آخر',
+    'كما هو معروف', 'من الجدير بالذكر', 'تجدر الإشارة إلى',
+    'وفي الختام', 'نستنتج مما سبق', 'يمكن القول إن'
+];
+
+let evaluationResults = {};
+let totalWrongProgramming = 0;
+let totalWrongDesign = 0;
+let totalAIDetected = 0;
+let isRejected = false;
+
+function evaluateAnswer(id) {
+    const textarea = document.getElementById(id);
+    const answer = textarea.value.trim();
+    if (!answer || answer.length < 10) return null;
+
+    const config = answerKeywords[id];
+    if (!config) return null;
+
+    const lower = answer.toLowerCase();
+    const diff = config.difficulty;
+
+    let matches = 0;
+    config.keywords.forEach(kw => {
+        if (lower.includes(kw.toLowerCase())) matches++;
+    });
+
+    const minReq = config.minKw[diff] || 2;
+    const isCorrect = matches >= minReq;
+
+    let aiScore = 0;
+    aiIndicators.forEach(ind => {
+        if (lower.includes(ind.toLowerCase())) aiScore++;
+    });
+
+    const sentences = answer.split(/[.!؟\n]/).filter(s => s.trim().length > 0);
+    const avgLen = answer.length / Math.max(sentences.length, 1);
+    if (avgLen > 100 && answer.length > 300) aiScore += 2;
+
+    const transWords = ['أولاً', 'ثانياً', 'ثالثاً', 'بالإضافة', 'علاوة', 'وأخيراً', 'في الختام'];
+    let transCount = 0;
+    transWords.forEach(w => { if (lower.includes(w.toLowerCase())) transCount++; });
+    if (transCount >= 3) aiScore += 2;
+
+    const aiThresh = diff === 'hard' ? 4 : diff === 'medium' ? 3 : 2;
+    const isAI = aiScore >= aiThresh;
+
+    return { isCorrect, isAI, matches, aiScore, category: config.category, difficulty: diff };
+}
+
+function updateQuestionUI(id, result) {
+    const box = document.getElementById('q-' + id);
+    const tag = document.getElementById('tag-' + id);
+    box.classList.remove('correct-q', 'wrong-q', 'ai-q');
+    tag.classList.remove('show', 'ok', 'no', 'bot');
+    if (!result) return;
+    if (result.isAI) {
+        box.classList.add('ai-q');
+        tag.classList.add('show', 'bot');
+        tag.textContent = '🤖 AI';
+    } else if (result.isCorrect) {
+        box.classList.add('correct-q');
+        tag.classList.add('show', 'ok');
+        tag.textContent = '✓ صحيح';
+    } else {
+        box.classList.add('wrong-q');
+        tag.classList.add('show', 'no');
+        tag.textContent = '✗ خاطئ';
+    }
+}
+
+function updateStats() {
+    let corr = 0, wrong = 0, ai = 0;
+    totalWrongProgramming = 0;
+    totalWrongDesign = 0;
+    totalAIDetected = 0;
+
+    Object.keys(evaluationResults).forEach(id => {
+        const r = evaluationResults[id];
+        if (!r) return;
+        if (r.isAI) { ai++; totalAIDetected++; }
+        else if (r.isCorrect) corr++;
+        else {
+            wrong++;
+            if (r.category === 'programming') totalWrongProgramming++;
+            else if (r.category === 'design') totalWrongDesign++;
+        }
+    });
+
+    const total = Object.keys(answerKeywords).length;
+    document.getElementById('totalQ').textContent = (corr + wrong + ai) + '/' + total;
+    document.getElementById('corrC').textContent = corr;
+    document.getElementById('wrongC').textContent = wrong;
+    document.getElementById('aiC').textContent = ai;
+
+    checkRejection();
+}
+
+function checkRejection() {
+    const rejectDiv = document.getElementById('rejectMsg');
+    const rejectReason = document.getElementById('rejectReason');
+    const submitBtn = document.getElementById('submitBtn');
+    let reject = false;
+    let reasons = [];
+
+    if (totalWrongProgramming > 4) {
+        reject = true;
+        reasons.push(`لديك ${totalWrongProgramming} إجابات خاطئة في البرمجة (الحد الأقصى 4)`);
+    }
+    if (totalWrongDesign > 4) {
+        reject = true;
+        reasons.push(`لديك ${totalWrongDesign} إجابات خاطئة في التصميم (الحد الأقصى 4)`);
+    }
+    if (totalAIDetected > 4) {
+        reject = true;
+        reasons.push(`تم اكتشاف ${totalAIDetected} إجابات ذكاء اصطناعي (الحد الأقصى 4)`);
+    }
+
+    if (reject) {
+        rejectDiv.classList.add('show');
+        rejectReason.innerHTML = reasons.join('<br>');
+        submitBtn.disabled = true;
+        submitBtn.textContent = '🚫 تم رفض الطلب تلقائياً';
+        submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        isRejected = true;
+        showNotif('تم رفض الطلب تلقائياً بسبب تجاوز الحد المسموح', 'err');
+    } else {
+        rejectDiv.classList.remove('show');
+        if (!isRejected) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'إرسال طلب الانخراط';
+            submitBtn.style.background = 'linear-gradient(135deg, #06b6d4, #3b82f6)';
+        }
+    }
+}
+
+function showNotif(msg, type) {
+    const n = document.getElementById('notif');
+    n.textContent = msg;
+    n.className = 'notif show ' + type;
+    setTimeout(() => { n.className = 'notif'; }, 5000);
+}
+
+const timers = {};
+function debouncedEval(id) {
+    clearTimeout(timers[id]);
+    timers[id] = setTimeout(() => {
+        const r = evaluateAnswer(id);
+        evaluationResults[id] = r;
+        updateQuestionUI(id, r);
+        updateStats();
+    }, 1500);
+}
+
+Object.keys(answerKeywords).forEach(id => {
+    const ta = document.getElementById(id);
+    if (ta) {
+        ta.addEventListener('input', () => debouncedEval(id));
+        ta.addEventListener('blur', () => {
+            clearTimeout(timers[id]);
+            const r = evaluateAnswer(id);
+            evaluationResults[id] = r;
+            updateQuestionUI(id, r);
+            updateStats();
+        });
+    }
+});
+
+// ============ معالجة تقديم النموذج ============
+document.getElementById('regForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (isRejected) { showNotif('لا يمكن إرسال الطلب لأنه تم رفضه', 'err'); return; }
+
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const agree = document.getElementById('agreement').checked;
+
+    if (!name) { showNotif('الرجاء إدخال الاسم واللقب', 'err'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showNotif('بريد إلكتروني غير صحيح', 'err'); return; }
+    if (!agree) { showNotif('يجب الموافقة على القوانين', 'err'); return; }
+
+    // التحقق من رفع الوثائق المطلوبة
+    if (!uploadedFiles.bacFile) { showNotif('الرجاء رفع شهادة البكالوريا', 'err'); return; }
+    if (!uploadedFiles.studyFile) { showNotif('الرجاء رفع الشهادة الدراسية', 'err'); return; }
+
+    // إعادة تقييم جميع الإجابات
+    Object.keys(answerKeywords).forEach(id => {
+        const r = evaluateAnswer(id);
+        evaluationResults[id] = r;
+        updateQuestionUI(id, r);
+    });
+    updateStats();
+
+    if (isRejected) { showNotif('تم رفض الطلب تلقائياً', 'err'); return; }
+
+    // تجميع البيانات مع الصور
+    const data = {
+        name: name,
+        email: email,
+        bac: document.getElementById('bacGrade').value,
+        // الصور بصيغة Base64
+        bacCertificate: uploadedFiles.bacFile || '',
+        studyCertificate: uploadedFiles.studyFile || '',
+        otherCertificate: uploadedFiles.certFile || '',
+        // الإجابات
+        prog1: document.getElementById('prog1').value,
+        prog2: document.getElementById('prog2').value,
+        prog3: document.getElementById('prog3').value,
+        prog4: document.getElementById('prog4').value,
+        prog5: document.getElementById('prog5').value,
+        design1: document.getElementById('design1').value,
+        design2: document.getElementById('design2').value,
+        design3: document.getElementById('design3').value,
+        design4: document.getElementById('design4').value,
+        design5: document.getElementById('design5').value,
+        talents: document.getElementById('talents').value,
+        whyClub: document.getElementById('whyClub').value,
+        aspirations: document.getElementById('aspirations').value,
+        // التقييم
+        evalResults: JSON.stringify(evaluationResults),
+        wrongProgramming: totalWrongProgramming,
+        wrongDesign: totalWrongDesign,
+        aiDetected: totalAIDetected,
+        submissionDate: new Date().toISOString()
+    };
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = 'جاري الإرسال... <span class="spinner show"></span>';
+
+    // ============ إرسال البيانات إلى Google Apps Script ============
+    fetch("https://script.google.com/macros/s/AKfycby5JHdFE9G9mZatBs2yF2fGbB-DJMesSRGD5MbRzbn8Crpm8tJ2C0vMHkXgNjduNYCkfg/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(response => {
+        console.log("تم حفظ التسجيل:", response);
+
+        showNotif('✅ تم إرسال طلب الانخراط بنجاح! سنتواصل معك قريباً.', 'ok');
+
+        btn.disabled = true;
+        btn.textContent = 'تم الإرسال ✓';
+
+        setTimeout(() => {
+            document.getElementById('regForm').reset();
+            evaluationResults = {};
+            updateStats();
+
+            Object.keys(answerKeywords).forEach(id => 
+                updateQuestionUI(id, null)
+            );
+
+            // إعادة تعيين رفع الصور
+            uploadedFiles.bacFile = null;
+            uploadedFiles.studyFile = null;
+            uploadedFiles.certFile = null;
+            document.getElementById('bacUploadArea').classList.remove('has-file');
+            document.getElementById('studyUploadArea').classList.remove('has-file');
+            document.getElementById('certUploadArea').classList.remove('has-file');
+            document.getElementById('bacFileName').style.display = 'none';
+            document.getElementById('studyFileName').style.display = 'none';
+            document.getElementById('certFileName').style.display = 'none';
+            document.getElementById('bacPreview').classList.remove('show');
+            document.getElementById('studyPreview').classList.remove('show');
+            document.getElementById('certPreview').classList.remove('show');
+
+            document.getElementById('rejectMsg').classList.remove('show');
+
+            btn.disabled = false;
+            btn.textContent = 'إرسال طلب الانخراط';
+            btn.style.background = 'linear-gradient(135deg, #06b6d4, #3b82f6)';
+
+            isRejected = false;
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        }, 5000);
+    })
+    .catch(err => {
+        console.error('خطأ في الإرسال:', err);
+        showNotif('❌ حدث خطأ أثناء الإرسال. الرجاء المحاولة مرة أخرى.', 'err');
+        btn.disabled = false;
+        btn.textContent = 'إرسال طلب الانخراط';
+        btn.style.background = 'linear-gradient(135deg, #06b6d4, #3b82f6)';
+    });
+});
+</script>
+
+</body>
+</html>
